@@ -24,8 +24,8 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-//app.use("/api/jobs", jobRoutes);
-app.use("/jobs", jobRoutes);
+app.use("/api/jobs", jobRoutes);
+//app.use("/jobs", jobRoutes);
 
 // Schedule job scraping every 24 hours
 cron.schedule("0 0 * * *", async () => {
