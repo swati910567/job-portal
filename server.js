@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['cool-salmiakki-b75efe.netlify.app', 'http://localhost:5000'],
+  origin: ['https://chic-halva-7bb6f8.netlify.app/', 'http://localhost:5000'],
   credentials: true
 }));
 app.use(express.json());
