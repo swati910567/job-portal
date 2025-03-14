@@ -16,11 +16,16 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://chic-halva-7bb6f8.netlify.app', 'http://localhost:5000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
-app.use("/api/jobs", jobRoutes);
+//app.use("/api/jobs", jobRoutes);
+app.use("/jobs", jobRoutes);
 
 // Schedule job scraping every 24 hours
 cron.schedule("0 0 * * *", async () => {
