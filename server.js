@@ -17,9 +17,12 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://curious-horse-3cf48a.netlify.app/','http://localhost:3000'],
-  credentials: true
+  origin: '*', // Temporarily allow all origins for testing
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json());
 
 // Routes
