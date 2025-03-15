@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://luxury-unicorn-ba4294.netlify.app/', 'http://localhost:5000'],
+  origin: ['https://merry-chebakia-64693e.netlify.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
