@@ -14,14 +14,23 @@ connectDB();
 
 // Initialize express app
 const app = express();
-
+app.use(
+  cors({
+    origin: "https://curious-horse-3cf48a.netlify.app", // Specify frontend domain
+    credentials: true, // Allow cookies/sessions
+  })
+);
 // Middleware
-app.use(cors({
-  origin: '*', // Temporarily allow all origins for testing
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://curious-horse-3cf48a.netlify.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 app.use(express.json());
 
